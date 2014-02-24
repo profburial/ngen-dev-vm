@@ -2,7 +2,7 @@ class elasticsearch {
 	exec { 'install jdk':
 	  path => "/usr/bin",
 	  command => 'sudo yum install java-1.7.0-openjdk-devel -y',
-	  timeout => 750,
+	  timeout => 1250,
 	}
 	~>
 	# Install ElasticSearch Repo
