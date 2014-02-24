@@ -1,19 +1,19 @@
 # Basic nGen Dev VM
 
-## OS: Centos 6.5
+### OS: Centos 6.5
 
-## Dependencies:
+### Dependencies:
    - php 5.5
    - MariaDB 5.5
    - Nginx
    - ElasticSearch
    - Beanstalk Queue
 
-## Use
+### Use
 
 Make sure you have [vagrant](http://vagrantup.com) installed. Clone and run `vagrant up`. Puppet takes care of most everything for you. 
 
-## Notes
+### Notes
 
 Feel free to edit `VagrantFile` as you see fit.
 
