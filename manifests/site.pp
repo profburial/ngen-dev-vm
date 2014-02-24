@@ -1,13 +1,14 @@
-
 ## 
 # Prepare OS
 ##
 
 # Dependencies
-include php
-include nginx
-include mariadb
-include elasticsearch
+class {'update': } ->
+class {'remi': } ->
+class {'nginx': } ->
+class {'php': } ->
+class {'mariadb': } ->
+class {'elasticsearch': } ->
 
 # motd
 file { '/etc/motd':
