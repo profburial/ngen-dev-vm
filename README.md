@@ -20,3 +20,7 @@ Feel free to edit `VagrantFile` as you see fit.
 You're going to need to setup vhosts as you need them. 
 
 All you should have to do is `cp /etc/nginx/conf.d/default.conf /etc/nginx/conf.d/whatever-dev.conf` and then edit the new vhost to your liking. 
+
+### MariaDB Setup
+
+Just run `sudo /usr/bin/mysql_secure_installation` to setup mariadb to your liking. 
