@@ -54,7 +54,7 @@ Vagrant.configure("2") do |config|
   end
 
   # Move config script to home dir
-  config.vm.provision :shell, :inline =>"sudo cp /vagrant/scripts/ngen_dev_setup.sh /home/vagrant/"
+  config.vm.provision :shell, :inline =>"sudo cp /vagrant/scripts/* /home/vagrant/"
 
   # Make config script executable
   config.vm.provision :shell, :inline =>"sudo chmod -R a+x /home/vagrant"
