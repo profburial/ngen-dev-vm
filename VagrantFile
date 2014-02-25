@@ -34,7 +34,6 @@ Vagrant.configure("2") do |config|
 
   # Set your sync folder
   config.vm.synced_folder "~/php", "/home/public_html", {:mount_options => ['dmode=777','fmode=777']}
-  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # Customize your box
   config.vm.provider :virtualbox do |vb|
@@ -43,10 +42,20 @@ Vagrant.configure("2") do |config|
     vb.customize ["modifyvm", :id, "--name", "ngen-dev"]
   end
 
+  # Update Kernel
+  config.vm.provision :shell, :inline => "sudo yum update -y"
+
+  # Run Puppet
   config.vm.provision "puppet" do |puppet|
     # puppet.options = "--verbose"
     puppet.manifests_path = "manifests"
     puppet.manifest_file  = "site.pp"
     puppet.module_path = "modules"
   end
+
+  # Move config script to home dir
+  config.vm.provision :shell, :inline =>"sudo cp /vagrant/scripts/ngen_dev_setup.sh /home/vagrant/"
+
+  # Make config script executable
+  config.vm.provision :shell, :inline =>"sudo chmod -R a+x /home/vagrant"
 end

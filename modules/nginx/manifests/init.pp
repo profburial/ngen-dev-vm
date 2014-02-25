@@ -33,4 +33,11 @@ class nginx {
 	  path => "/usr/bin",
 	  command => 'sudo service nginx start'
 	}
+	->
+	exec {
+	    'start nginx on load':
+	        command     => 'sudo chkconfig nginx on',
+	        logoutput   => on_failure,
+	        path   		=> "/usr/bin",
+	}
 }

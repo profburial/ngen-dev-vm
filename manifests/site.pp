@@ -3,7 +3,6 @@
 ##
 
 # Dependencies
-class {'update': } ->
 class {'remi': } ->
 class {'nginx': } ->
 class {'php': } ->
@@ -19,7 +18,7 @@ file { '/etc/motd':
      IP Address: $ipaddress
      Uptime: $uptime
      Memory: $memorysize
-     Kernel: $kernelrelease
+     Kernel: $kernelreleaset
      --------------------------------------
      \n"
 } ->
@@ -28,7 +27,7 @@ file { '/etc/motd':
 exec { 'rebuild guest additions':
   path => "/usr/bin",
   command => 'sudo /etc/init.d/vboxadd setup',
-  timeout => 1800,
+  timeout => 750,
 } ->
 
 # open ports

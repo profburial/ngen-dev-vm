@@ -15,4 +15,11 @@ class mariadb {
     service { 'mysql':
         ensure => 'running'
     }
+    ->
+	exec {
+	    'start mariadb on load':
+	        command     => 'sudo chkconfig mysql on',
+	        logoutput   => on_failure,
+	        path   		=> "/usr/bin",
+	}
 }

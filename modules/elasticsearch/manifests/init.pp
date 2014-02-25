@@ -23,4 +23,11 @@ class elasticsearch {
     service { 'elasticsearch':
         ensure => 'running'
     }
+    ->
+	exec {
+	    'start elasticsearch on load':
+	        command     => 'sudo chkconfig elasticsearch on',
+	        logoutput   => on_failure,
+	        path   		=> "/usr/bin",
+	}
 }
