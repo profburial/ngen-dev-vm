@@ -14,34 +14,33 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-VAGRANTFILE_API_VERSION = "2"
-
-Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+Vagrant.configure("2") do |config|
   
   # ...Maybe leave this alone? The puppet modules are centos specific.
   config.vm.box = "centos-65-puppet"
   config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.5-x86_64-v20140110.box"
   
   # Set your ip address
-  # config.vm.network :private_network, ip: "192.168.33.10"
+  config.vm.network :private_network, ip: "192.168.56.101"
   
   # Use public network
-  config.vm.network :public_network, :bridge => 'en0: Wi-Fi (AirPort)'
+  # config.vm.network :public_network, :bridge => 'en0: Wi-Fi (AirPort)'
 
   # Port Forward
-  # config.vm.network :forwarded_port, host: 8080, guest: 80
+  config.vm.network :forwarded_port, guest: 80, host: 8888, auto_correct: true
 
   # If true, then any SSH connections made will enable agent forwarding.
-  # Default value: false
   config.ssh.forward_agent = true
 
   # Set your sync folder
-  config.vm.synced_folder "~/php", "/home/public_html"
+  config.vm.synced_folder "~/php", "/home/public_html", {:mount_options => ['dmode=777','fmode=777']}
+  config.vm.synced_folder ".", "/vagrant", disabled: true
 
   # Customize your box
   config.vm.provider :virtualbox do |vb|
     vb.customize ["modifyvm", :id, "--memory", "1024"]
     vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+    vb.customize ["modifyvm", :id, "--name", "ngen-dev"]
   end
 
   config.vm.provision "puppet" do |puppet|
