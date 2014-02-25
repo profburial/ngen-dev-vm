@@ -24,4 +24,10 @@ class php {
 	  cwd => '/home/vagrant',
 	  command => 'sudo service php-fpm start',
 	}
+	->
+	->
+	exec { 'start php-fpm reboot':
+	  path => "/usr/bin",
+	  command => 'sudo chkconfig php-fpm on',
+	}
 }
