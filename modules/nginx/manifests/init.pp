@@ -29,7 +29,8 @@ class nginx {
 	  source => 'puppet:///modules/nginx/default.conf',
 	}
 	->
-    service { 'nginx':
-        ensure => 'running'
-    }
+    exec { 'start nginx':
+	  path => "/usr/bin",
+	  command => 'sudo service nginx start'
+	}
 }
