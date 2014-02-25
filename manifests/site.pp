@@ -22,7 +22,14 @@ file { '/etc/motd':
      Kernel: $kernelrelease
      --------------------------------------
      \n"
-}
+} ->
+
+# rebuild guest additions
+exec { 'rebuild guest additions':
+  path => "/usr/bin",
+  command => 'sudo /etc/init.d/vboxadd setup',
+  timeout => 1800,
+} ->
 
 # open ports
 class{'iptables': }
