@@ -9,6 +9,7 @@ class {'nginx': } ->
 class {'php': } ->
 class {'mariadb': } ->
 class {'elasticsearch': } ->
+class {'beanstalkd': } ->
 
 # motd and ports
 file { '/etc/motd':
