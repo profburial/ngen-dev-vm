@@ -17,6 +17,8 @@ Make sure you have [vagrant](http://vagrantup.com) installed. Clone and run `vag
 
 Once your box is built, run `vagrant ssh` and then `sudo ./ngen_dev_setup.sh`. This will walk you though setting up your vhosts and MariaDB.
 
+To setup additional vhosts at a later time, run `sudo ./nginx_conf.sh`.
+
 ### Notes
 
 Feel free to edit `VagrantFile` as you see fit.
