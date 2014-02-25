@@ -25,3 +25,6 @@ Feel free to edit `VagrantFile` as you see fit.
 
 Your vm will have a static ip of `192.168.56.101` unless you change it, and it assumes your synced folder is `~/php`. Change those values to whatever suits your needs.
 
+** sync files not mounting **
+`vagrant ssh` -> `sudo /etc/init.d/vboxadd setup` -> `logout` -> `vagrant reload`
+
