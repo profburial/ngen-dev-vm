@@ -11,7 +11,7 @@ echo "
                                                                      |_|    
 
 
-                                                            by tburial
+                                                            by profburial
 "
 
 ./nginx_conf.sh
