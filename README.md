@@ -4,7 +4,7 @@
 
 ### Dependencies:
    - php 5.5
-   - MariaDB 5.5
+   - MariaDB 10
    - Nginx
    - ElasticSearch
    - Beanstalk Queue
