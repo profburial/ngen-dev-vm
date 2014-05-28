@@ -8,6 +8,7 @@ class {'nginx': } ->
 class {'php': } ->
 class {'mariadb': } ->
 class {'elasticsearch': } ->
+class {'redis': } -> 
 class {'beanstalkd': } ->
 
 # motd and ports

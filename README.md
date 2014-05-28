@@ -7,6 +7,7 @@
    - MariaDB 10
    - Nginx
    - ElasticSearch
+   - Redis
    - Beanstalk Queue
 
 ### Use
