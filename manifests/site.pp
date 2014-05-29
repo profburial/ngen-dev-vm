@@ -19,7 +19,7 @@ file { '/etc/motd':
      IP Address: $ipaddress
      Uptime: $uptime
      Memory: $memorysize
-     Kernel: $kernelreleaset
+     Kernel: $kernelrelease
      --------------------------------------
      \n"
 } ->
